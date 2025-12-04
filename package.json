@@ -28,13 +28,14 @@
     "jsonwebtoken": "^9.0.3",
     "prisma": "^7.1.0"
   },
-  "scripts": {
-    "dev": "nodemon src/app.ts",
-    "build": "tsc",
+    "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "build": "npm run prisma:generate && tsc",
     "start": "node dist/app.js",
     "prisma:generate": "prisma generate",
-    "prisma:migrate": "prisma migrate dev",
-    "prisma:studio": "prisma studio",
-    "prisma:push": "prisma db push"
+    "prisma:migrate": "prisma migrate deploy",
+    "prisma:push": "prisma db push",
+    "vercel-build": "npm run build",
+    "vercel-dev": "npm run dev"
   }
 }
