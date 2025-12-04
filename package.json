@@ -30,7 +30,8 @@
   },
     "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
-    "build": "npm run prisma:generate && tsc",
+    "build": "npm run prisma:generate && npm run compile-ts",
+    "compile-ts": "tsc",
     "start": "node dist/app.js",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate deploy",
